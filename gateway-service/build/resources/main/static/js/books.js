@@ -20,6 +20,8 @@ async function loadBooks() {
                 <td>${book.title}</td>
                 <td>${book.author}</td>
                 <td>${book.description || ''}</td>
+                <td>${book.chulpan}</td>
+                <td>${book.publisher}</td>
                 <td>
                     <button class="btn btn-sm btn-primary" onclick="editBook(${book.id})">수정</button>
                     <button class="btn btn-sm btn-danger" onclick="deleteBook(${book.id})">삭제</button>
@@ -52,6 +54,8 @@ async function editBook(id) {
         document.getElementById('title').value = book.title;
         document.getElementById('author').value = book.author;
         document.getElementById('description').value = book.description || '';
+        document.getElementById('chulpan').value = book.chulpan;
+        document.getElementById('publisher').value= book.publisher;
 
         bookModal.show();
     } catch (error) {
@@ -66,7 +70,9 @@ async function saveBook() {
     const book = {
         title: document.getElementById('title').value,
         author: document.getElementById('author').value,
-        description: document.getElementById('description').value
+        description: document.getElementById('description').value,
+        chulpan: parseInt( document.getElementById('chulpan').value),
+        publisher: document.getElementById('publisher').value
     };
 
     try {
@@ -74,7 +80,7 @@ async function saveBook() {
         const method = id ? 'PUT' : 'POST';
 
         const response = await fetch(url, {
-            method: method,
+            method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(book)
         });

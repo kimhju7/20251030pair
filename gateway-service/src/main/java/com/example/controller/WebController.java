@@ -50,4 +50,7 @@ public class WebController {
 
     @GetMapping("/books")
     public String book(Model model) {return "books";}
+
+    @GetMapping("/rbmq1")
+    public String rbmq1(Model model) {return "rbmq1";}
 } 

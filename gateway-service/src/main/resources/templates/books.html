@@ -10,9 +10,9 @@
 <nav class="navbar">
     <a href="/" class="navbar-brand">MSA Demo</a>
     <div style="float: right;">
-        <a href="/books" class="btn btn-primary" style="margin-right: 1rem;">도서 관리</a>
-        <a href="/products" class="btn btn-primary" style="margin-right: 1rem;>상품 관리</a>
-        <a href="/orders" class="btn btn-primary">주문 관리</a>
+        <a href="/products" class="btn btn-primary" style="margin-right: 1rem;">상품 관리</a>
+        <a href="/orders" class="btn btn-primary" style="margin-right: 1rem;">주문 관리</a>
+        <a href="/books" class="btn btn-primary">도서 관리</a>
     </div>
 </nav>
 
@@ -30,11 +30,12 @@
                     <th>도서 제목</th>
                     <th>저자</th>
                     <th>내용</th>
+                    <th>출판년도</th>
+                    <th>출판사</th>
                     <th>작업</th>
                 </tr>
                 </thead>
-                <tbody>
-                <!-- 도서 목록은 여기서 동적으로 추가됩니다 -->
+                <tbody id = "bookTableBody">
                 </tbody>
             </table>
         </div>
@@ -64,6 +65,15 @@
                         <label class="form-label">내용</label>
                         <textarea class="form-control" id="description"></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">출판년도</label>
+                        <input type="number" class="form-control" id="chulpan">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">출판사</label>
+                        <input type="text" class="form-control" id="publisher" required>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
